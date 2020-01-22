@@ -1,0 +1,57 @@
+{
+  "activePoints": 2,
+  "points": [
+    {
+      "x": 0.2,
+      "y": 0.2,
+      "hue": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 0.0
+      },
+      "sat": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 0.1
+      },
+      "brt": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 1.0
+      }
+    },
+    {
+      "x": 0.75,
+      "y": 0.2,
+      "hue": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 0.5
+      },
+      "sat": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 0.1
+      },
+      "brt": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 1.0
+      }
+    }
+  ],
+  "slowDownTrigger": 0,
+  "addOnStraight": true,
+  "slowDownLength": 5,
+  "rangeHue": 0.0003,
+  "biasHue": 0.003,
+  "rangeSat": 0.0,
+  "biasSat": 0.0,
+  "rangeBrt": 0.004,
+  "biasBrt": -0.01,
+  "minLength": 16,
+  "maxLength": 3200,
+  "shuffle": false,
+  "garbageStart": 500,
+  "crystalUndisturbed": 8
+}

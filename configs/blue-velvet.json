@@ -1,0 +1,96 @@
+{
+  "activePoints": 4,
+  "points": [
+
+    {
+      "x": 0.5,
+      "y": 0.25,
+      "hue": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 0.6
+      },
+      "sat": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 0.75
+      },
+      "brt": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 1.0
+      }
+    },
+    {
+      "x": 0.65,
+      "y": 0.42,
+      "hue": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 0.65
+      },
+      "sat": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 1.0
+      },
+      "brt": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 1.0
+      }
+    },
+    {
+      "x": 0.2,
+      "y": 0.35,
+      "hue": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 0.7
+      },
+      "sat": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 1.0
+      },
+      "brt": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 1.0
+      }
+    },
+    {
+      "x": 0.8,
+      "y": 0.15,
+      "hue": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 0.75
+      },
+      "sat": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 1.0
+      },
+      "brt": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 1.0
+      }
+    }
+  ],
+  "slowDownTrigger": 10,
+  "addOnStraight": false,
+  "slowDownLength": 10,
+  "rangeHue": 0.0,
+  "biasHue": 0.001,
+  "rangeSat": 0.004,
+  "biasSat": -0.00025,
+  "rangeBrt": 0.3,
+  "biasBrt": -0.125,
+  "minLength": 1,
+  "maxLength": 90,
+  "shuffle": false,
+  "garbageStart": 4000,
+  "crystalUndisturbed": 10
+}

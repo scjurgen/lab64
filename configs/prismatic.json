@@ -1,0 +1,55 @@
+{
+  "activePoints": 2,
+  "points": [
+    {
+      "x": 0.2,
+      "y": 0.2,
+      "hue": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 0.0
+      },
+      "sat": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 0.3
+      },
+      "brt": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 1.0
+      }
+    },
+    {
+      "x": 0.3,
+      "y": 0.3,
+      "hue": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 0.5
+      },
+      "sat": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 0.3
+      },
+      "brt": {
+        "min": 0.0,
+        "max": 1.0,
+        "init": 1.0
+      }
+    }
+  ],
+  "addOnStraight": true,
+  "rangeHue": 0.003,
+  "biasHue": -0.03,
+  "rangeSat": 0.00,
+  "biasSat": -0.001,
+  "rangeBrt": 0.004,
+  "biasBrt": -0.0012,
+  "minLength": 8,
+  "maxLength": 88,
+  "shuffle": true,
+  "garbageStart": 500,
+  "crystalUndisturbed": 1
+}
