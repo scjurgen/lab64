@@ -1,6 +1,6 @@
 
 
-###Requirements:
+### Requirements
 
 - C++ compiler 
 - Cmake
@@ -12,7 +12,7 @@ This works nicely on mac (use homebrew for the missing stuff, you will not regre
 Sorry, no Windows solution.
 
 
-###Build
+### Build
 
 create the build folder run cmake and make
 
@@ -22,7 +22,7 @@ cd build
 cmake -DCMAKE_BUILD_TYPE=Release ..
 make
 ```
-###Run
+### Run
 
 Smallsize example
 ```bash
@@ -33,5 +33,3 @@ Retina display with oversampling
 ```bash
 ./LabNew -j ./configs/dark-age.json -w 5120 -h 2880 -o bright_n --oversample 4 -r 2
 ```
-
-
