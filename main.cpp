@@ -9,24 +9,10 @@
 #include <json.hpp>
 
 #include "Canvas.h"
+#include "RandomGenerator.h"
 
-double getRandValRange(double min, double max)
-{
-    if (min == max)
-    {
-        return min;
-    }
-    return min + (double) (rand() % RAND_MAX) / RAND_MAX * (max - min);
-}
+RandomGenerator rndg;
 
-double randValue(double min, double max)
-{
-    if (min == max)
-    {
-        return min;
-    }
-    return min + (double) (rand() % RAND_MAX) / RAND_MAX * (max - min);
-}
 static struct
 {
     int8_t x;
@@ -206,7 +192,7 @@ class Lab
 
         for (uint32_t dir = 0; dir < maxDirections(); dir++)
         { // shuffle directions index
-            int i   = rand() % maxDirections();
+            int i   = rndg.GetNormalizedUniformRange() * maxDirections();
             int a   = nR[dir];
             nR[dir] = nR[i];
             nR[i]   = a;
@@ -222,12 +208,13 @@ class Lab
                 atom.cnt++;
                 if (!addOnStraight)
                 {
-                    addColor(atom.hue, atom.sat, atom.brt, getRandValRange(minHueAdd, maxHueAdd),
-                             getRandValRange(minSatAdd, maxSatAdd), getRandValRange(minBrtAdd, maxBrtAdd), set);
+                    addColor(atom.hue, atom.sat, atom.brt, rndg.GetUniformRange(minHueAdd, maxHueAdd),
+                             rndg.GetUniformRange(minSatAdd, maxSatAdd), rndg.GetUniformRange(minBrtAdd, maxBrtAdd),
+                             set);
                 }
                 auto nx = x + dirPlus[dir].x;
                 auto ny = y + dirPlus[dir].y;
-                auto r1 = pow((float) (rand() % RAND_MAX) / RAND_MAX, 2);
+                auto r1 = pow(rndg.GetNormalizedUniformRange(), 2);
                 auto r2 = r1 * static_cast<double>(maxLength - minLength);
                 r2 += minLength;
                 addRunner(nx, ny, dir, (int32_t) r2, set);
@@ -254,8 +241,9 @@ class Lab
                     canvas.getValues(x, y, atom);
                     atom.cnt++;
                     if (addOnStraight) // change color only for every active point
-                        addColor(atom.hue, atom.sat, atom.brt, getRandValRange(minHueAdd, maxHueAdd),
-                                 getRandValRange(minSatAdd, maxSatAdd), getRandValRange(minBrtAdd, maxBrtAdd), set);
+                        addColor(atom.hue, atom.sat, atom.brt, rndg.GetUniformRange(minHueAdd, maxHueAdd),
+                                 rndg.GetUniformRange(minSatAdd, maxSatAdd), rndg.GetUniformRange(minBrtAdd, maxBrtAdd),
+                                 set);
                     // some slight color changes on pixel run
                     x += dirPlus[dir].x;
                     y += dirPlus[dir].y;
@@ -295,7 +283,7 @@ class Lab
                 }
                 if (shuffle)
                 {
-                    return (int32_t)(rand() % lastrun);
+                    return (int32_t)(rndg.GetNormalizedUniformRange() * lastrun);
                 }
                 return idx;
             }
@@ -323,7 +311,7 @@ class Lab
         {
             if (lastrun)
             {
-                return (int32_t)(rand() % lastrun);
+                return (int32_t)(rndg.GetNormalizedUniformRange() * lastrun);
             }
             else
             {
@@ -384,22 +372,22 @@ class Lab
             ATOM nAtom;
             try
             {
-                double valx = json["points"][i]["x"].get<double>();
-                xS[i]       = valx * canvas.width();
+                auto valx = json["points"][i]["x"].get<double>();
+                xS[i]     = valx * canvas.width();
             }
             catch (nlohmann::json::exception &e)
             {
-                xS[i] = rand() % canvas.width();
+                xS[i] = rndg.GetNormalizedUniformRange() * canvas.width();
                 xS[i] = xS[i] / 2 + canvas.width() / 4;
             }
             try
             {
-                double valy = json["points"][i]["y"].get<double>();
-                yS[i]       = valy * canvas.height();
+                auto valy = json["points"][i]["y"].get<double>();
+                yS[i]     = valy * canvas.height();
             }
             catch (std::exception &e)
             {
-                yS[i] = rand() % canvas.height();
+                yS[i] = rndg.GetNormalizedUniformRange() * canvas.height();
                 yS[i] = yS[i] / 2 + canvas.height() / 4;
             }
 
@@ -473,7 +461,7 @@ int main(int ac, char *av[])
             }
             else if (item == "-r" || item == "--randseed")
             {
-                srand(::atoi(av[idxAc++]));
+                rndg.seed(::atoi(av[idxAc++]));
             }
             else
             {
